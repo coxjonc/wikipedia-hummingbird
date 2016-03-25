@@ -1,0 +1,39 @@
+{
+    "name": "Wikipedia Hummingbird",
+    "short_name": "Hummingbird",
+    "description": "Learn about things by highlighting them. Select a term and hit Ctrl+Shift+7 for an excerpt from its Wikipedia article.",
+    "version": "0.1.2",
+    "permissions": [
+        "activeTab"
+    ],
+    "commands": {
+     "run_search": {
+       "suggested_key": {
+         "default": "Ctrl+Shift+7"
+       },
+       "description": "Get Wikipedia entry for highlighted term"
+   }
+   },
+   "icons": {
+       "128": "hummingbird128.png"
+   },
+    "background": {
+        "scripts": ["jquery-2.1.4.min.js", "jquery-ui.min.js", "background.js"],
+        "persistent": false
+    },
+    "web_accessible_resources" : [
+        "*.gif",
+        "*.png",
+        "*.jpg",
+        "hummingbird128.png"
+    ],
+    "content_scripts": [
+        {
+            "css" : ["jquery-ui.css"],
+            "js": [ "jquery-2.1.4.min.js", "jquery-ui.min.js"],
+            "matches": [ "http://*/*", "https://*/*" ]
+        }
+    ],
+    "content_security_policy": "script-src 'self' https://en.wikipedia.org; object-src 'self' https://en.wikipedia.org",
+    "manifest_version": 2
+}
